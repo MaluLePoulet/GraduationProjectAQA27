@@ -6,10 +6,6 @@ import pages.ProjectsPage;
 
 public class LoginStep extends BaseStep {
 
-    public LoginStep() {
-        super();
-    }
-
     public ProjectsPage successfulLogin(String username, String password) {
         login(username, password);
 
