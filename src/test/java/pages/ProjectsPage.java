@@ -13,7 +13,7 @@ public class ProjectsPage extends BasePage {
 
     @Override
     protected SelenideElement getPageIdentifier() {
-        return $(PROJECTS_TITLE_LOCATOR);
+        return (PROJECTS_TITLE_LOCATOR);
     }
 
     public SelenideElement getProjectAddButton() {
@@ -28,5 +28,4 @@ public class ProjectsPage extends BasePage {
         getProjectAddButton().click();
         return new AddProjectPage();
     }
-
 }
