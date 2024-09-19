@@ -1,6 +1,5 @@
 package baseEntities;
 
-import pages.AddProjectPage;
 import pages.LoginPage;
 import pages.ProjectsPage;
 
