@@ -1,11 +1,10 @@
 package pages;
 
 import baseEntities.BasePage;
-import baseEntities.BaseTest;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
+
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$$;
 
 public class LoginPage extends BasePage {
     private final By WELCOME_MESSAGE_LOCATOR = By.xpath("//h1[contains(text(), 'Welcome! Please log in:')]");
@@ -14,7 +13,7 @@ public class LoginPage extends BasePage {
     private final SelenideElement LOGIN_BUTTON_LOCATOR = $(".ui.primary.button");
     private final SelenideElement MESSAGE_BLOCK_LOCATOR = $(".message-block.message-block--negative.message-block--scroll");
 
-  @Override
+    @Override
     protected SelenideElement getPageIdentifier() {
         return $(WELCOME_MESSAGE_LOCATOR);
     }
@@ -32,7 +31,7 @@ public class LoginPage extends BasePage {
     }
 
     public SelenideElement getBlockMessage() {
-      return MESSAGE_BLOCK_LOCATOR;
+        return MESSAGE_BLOCK_LOCATOR;
     }
 
     public LoginPage setEmail(String email) {

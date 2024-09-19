@@ -9,21 +9,22 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Listeners;
 import steps.LoginStep;
+import steps.ProjectStep;
 
 import static com.codeborne.selenide.Selenide.open;
 
 @Listeners(SoftAsserts.class)
 public class BaseTest {
-    protected ProjectStep projectStep;
     protected LoginStep loginStep;
+    protected ProjectStep projectStep;
 
     @BeforeSuite
     public void beforeSuite() {
         Configuration.baseUrl = ReadProperties.getUrl();
         Configuration.assertionMode = AssertionMode.SOFT;
 
-        projectStep = new ProjectStep();
         loginStep = new LoginStep();
+        projectStep = new ProjectStep();
     }
 
     @BeforeMethod
