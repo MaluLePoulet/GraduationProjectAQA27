@@ -4,7 +4,6 @@ import baseEntities.BasePage;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import elements.HiddenCheckbox;
-import org.openqa.selenium.By;
 import pages.instances.ProjectInstancePage;
 
 import java.io.File;
@@ -17,6 +16,7 @@ public class AddProjectPage extends BasePage {
     private final SelenideElement PAGE_TITLE_LOCATOR = $(byText("Add project"));
     private final SelenideElement PROJECT_NAME_INPUT_LOCATOR = $("[placeholder='Project name']");
     private final SelenideElement SUMMARY_INPUT_LOCATOR = $("div > textarea");
+    private final SelenideElement MAX_LENGTH_COUNTER_LOCATOR = $(".maxlength-counter__counter");
     private final SelenideElement DEFAULT_ACCESS_DROPDOWN_LOCATOR = $(".dropdown");
     private final SelenideElement DEFAULT_ACCESS_TOOLTIP_LOCATOR = $(".inline-tip.help[data-title='Default access']");
     private final SelenideElement DEMO_PROJECT_CHECKBOX_LOCATOR = $("[data-target='addDemoProject']");
@@ -35,6 +35,10 @@ public class AddProjectPage extends BasePage {
 
     public SelenideElement getSummaryInput() {
         return SUMMARY_INPUT_LOCATOR;
+    }
+
+    public SelenideElement getMaxLengthCounter() {
+        return MAX_LENGTH_COUNTER_LOCATOR;
     }
 
     public SelenideElement getDefaultAccessDropdown() {
@@ -95,6 +99,7 @@ public class AddProjectPage extends BasePage {
     }
 
     public AddProjectPage uploadAvatar(String path) {
+        clickSelectAvatarButton();
         getUploadAvatarButton().uploadFile(new File(path));
         return this;
     }
