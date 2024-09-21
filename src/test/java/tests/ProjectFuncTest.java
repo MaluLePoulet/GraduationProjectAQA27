@@ -17,7 +17,7 @@ public class ProjectFuncTest extends BaseTest {
     @Test
     public void projectFunctionalityTest() {
         loginStep
-                .successfulLogin(UserDirector.getUserWithIncorrectEmail())
+                .successfulLogin(UserDirector.getAdmin())
                 .createNewProject();
 
         addProjectPage // Тест на проверку превышающих значений
@@ -25,7 +25,8 @@ public class ProjectFuncTest extends BaseTest {
                 .getSummaryInput()
                 .shouldNotBe(empty)
                 .shouldHave(value("This text contains way way way way more than eighty symbols. The exact number is"));
-        $(".maxlength-counter__counter").shouldHave(text("80/81"));
+        $(".maxlength-counter__counter")
+                .shouldHave(text("80/80"));
 
         addProjectPage // Тест на проверку всплывающего сообщения
                 .getDefaultAccessTooltip()
