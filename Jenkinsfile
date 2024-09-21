@@ -21,7 +21,7 @@ pipeline {
             }
 
             post {
-                success {
+                always {
                     junit '**/target/surefire-reports/TEST-*.xml'
                     allure includeProperties: false, jdk: '', results: [[path: 'target/allure-results']]
                 }
