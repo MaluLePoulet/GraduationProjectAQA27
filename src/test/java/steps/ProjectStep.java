@@ -16,7 +16,6 @@ public class ProjectStep extends BaseStep {
 
     public ProjectInstancePage addProjectWithAvatar(Project project) {
         setTextFieldsValues(project)
-                .clickSelectAvatarButton()
                 .uploadAvatar(project.getUploadAvatar())
                 .clickAddProjectButton();
         return new ProjectInstancePage();
