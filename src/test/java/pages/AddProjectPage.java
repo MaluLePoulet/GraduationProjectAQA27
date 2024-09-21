@@ -9,11 +9,12 @@ import pages.instances.ProjectInstancePage;
 
 import java.io.File;
 
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
 public class AddProjectPage extends BasePage {
-    private final By PAGE_TITLE_LOCATOR = By.xpath("//div[contains(text(), 'Add project')]");
+    private final SelenideElement PAGE_TITLE_LOCATOR = $(byText("Add project"));
     private final SelenideElement PROJECT_NAME_INPUT_LOCATOR = $("[placeholder='Project name']");
     private final SelenideElement SUMMARY_INPUT_LOCATOR = $("div > textarea");
     private final SelenideElement DEFAULT_ACCESS_DROPDOWN_LOCATOR = $(".dropdown");
@@ -25,7 +26,7 @@ public class AddProjectPage extends BasePage {
 
     @Override
     protected SelenideElement getPageIdentifier() {
-        return $(PAGE_TITLE_LOCATOR);
+        return PAGE_TITLE_LOCATOR;
     }
 
     public SelenideElement getProjectNameInput() {
