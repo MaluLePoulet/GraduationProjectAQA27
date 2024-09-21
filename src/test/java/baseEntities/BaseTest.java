@@ -3,8 +3,10 @@ package baseEntities;
 import com.codeborne.selenide.AssertionMode;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.WebDriverRunner;
+import com.codeborne.selenide.logevents.SelenideLogger;
 import com.codeborne.selenide.testng.SoftAsserts;
 import configuration.ReadProperties;
+import io.qameta.allure.selenide.AllureSelenide;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Listeners;
@@ -20,6 +22,7 @@ public class BaseTest {
 
     @BeforeSuite
     public void beforeSuite() {
+        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
         Configuration.baseUrl = ReadProperties.getUrl();
         Configuration.assertionMode = AssertionMode.SOFT;
 
