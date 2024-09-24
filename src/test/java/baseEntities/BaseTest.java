@@ -7,9 +7,7 @@ import com.codeborne.selenide.logevents.SelenideLogger;
 import com.codeborne.selenide.testng.SoftAsserts;
 import configuration.ReadProperties;
 import io.qameta.allure.selenide.AllureSelenide;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.Listeners;
+import org.testng.annotations.*;
 import steps.LoginStep;
 import steps.ProjectStep;
 
@@ -20,19 +18,19 @@ public class BaseTest {
     protected LoginStep loginStep;
     protected ProjectStep projectStep;
 
-    @BeforeSuite
-    public void beforeSuite() {
+    @BeforeTest
+    public void beforeTest() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
         Configuration.baseUrl = ReadProperties.getUrl();
         Configuration.assertionMode = AssertionMode.SOFT;
-
-        loginStep = new LoginStep();
-        projectStep = new ProjectStep();
     }
 
-    @BeforeMethod
+    @BeforeClass
     public void setUp() {
         open("/");
         WebDriverRunner.driver().getWebDriver().manage().window().maximize();
+
+        loginStep = new LoginStep();
+        projectStep = new ProjectStep();
     }
 }

@@ -15,6 +15,7 @@
         <testng.version>7.10.2</testng.version>
         <selenide.version>7.4.1</selenide.version>
         <allure.version>2.27.0</allure.version>
+        <suiteFileName>parallel.xml</suiteFileName>
         <allure.results.directory>target/allure-results</allure.results.directory>
     </properties>
 
@@ -44,5 +45,20 @@
             <version>${allure.version}</version>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.3.1</version>
+                <configuration>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>target/test-classes/${suiteFileName}</suiteXmlFile>
+                    </suiteXmlFiles>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
