@@ -6,7 +6,7 @@ pipeline {
     }
 
     parameters {
-        gitParameter branchFilter: 'origin/(.*)', defaultValue: 'feature/Jenkins', name: 'BRANCH', type: 'PT_BRANCH'
+        gitParameter branchFilter: 'origin/(.*)', defaultValue: 'develop', name: 'BRANCH', type: 'PT_BRANCH'
     }
 
     stages {
