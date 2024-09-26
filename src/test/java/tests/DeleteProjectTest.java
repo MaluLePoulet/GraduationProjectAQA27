@@ -1,6 +1,7 @@
 package tests;
 
 import baseEntities.BaseTest;
+import io.qameta.allure.Description;
 import org.testng.annotations.Test;
 import utils.ProjectDirector;
 import utils.UserDirector;
@@ -10,7 +11,8 @@ import static com.codeborne.selenide.Condition.*;
 
 public class DeleteProjectTest extends BaseTest {
 
-    @Test
+    @Test(description = "Delete project and check popup")
+    @Description("Test to check the display of the dialog box and removal of the project entity")
     public void deleteTest() {
         loginStep
                 .successfulLogin(UserDirector.getAdmin())
