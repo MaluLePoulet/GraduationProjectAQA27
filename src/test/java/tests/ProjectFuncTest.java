@@ -1,6 +1,7 @@
 package tests;
 
 import baseEntities.BaseTest;
+import io.qameta.allure.Description;
 import org.testng.annotations.Test;
 import pages.AddProjectPage;
 import utils.ProjectDirector;
@@ -14,7 +15,8 @@ import static com.codeborne.selenide.Selenide.*;
 public class ProjectFuncTest extends BaseTest {
     protected AddProjectPage addProjectPage = new AddProjectPage();
 
-    @Test
+    @Test(description = "Exceeded values test")
+    @Description("This is to test if the field that allows a certain number of symbols works correctly")
     public void exceededValuesTest() {
         loginStep
                 .successfulLogin(UserDirector.getAdmin())
@@ -28,7 +30,8 @@ public class ProjectFuncTest extends BaseTest {
                 .shouldHave(text("80/80"));
     }
 
-    @Test(dependsOnMethods = "exceededValuesTest")
+    @Test(dependsOnMethods = "exceededValuesTest", description = "Popup test")
+    @Description("This is to test if the popup functionality works correctly")
     public void popupTest() {
         addProjectPage
                 .getDefaultAccessTooltip()
@@ -38,7 +41,8 @@ public class ProjectFuncTest extends BaseTest {
                 .shouldHave(text("You can assign project-specific permissions to users and groups. All users without project-specific permissions automatically use this configured default access (e.g. their global role)."));
     }
 
-    @Test(dependsOnMethods = "popupTest")
+    @Test(dependsOnMethods = "popupTest", description = "File Upload test")
+    @Description("This is to test if file uploading functionality works correctly")
     public void fileUploadTest() {
         addProjectPage
                 .uploadAvatar
@@ -52,7 +56,8 @@ public class ProjectFuncTest extends BaseTest {
                 .shouldBe(visible);
     }
 
-    @Test(dependsOnMethods = "fileUploadTest")
+    @Test(dependsOnMethods = "fileUploadTest", description = "Create project test")
+    @Description("This is to test if creation of the project works correctly")
     public void createProjectTest() {
         projectStep.addProject(ProjectDirector.getProject());
         $(".page-header__title")
