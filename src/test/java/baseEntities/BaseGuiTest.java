@@ -14,7 +14,7 @@ import steps.ProjectStep;
 import static com.codeborne.selenide.Selenide.open;
 
 @Listeners(SoftAsserts.class)
-public class BaseTest {
+public class BaseGuiTest {
     protected LoginStep loginStep;
     protected ProjectStep projectStep;
 
