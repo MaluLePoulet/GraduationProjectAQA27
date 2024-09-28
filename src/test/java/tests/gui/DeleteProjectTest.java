@@ -36,5 +36,4 @@ public class DeleteProjectTest extends BaseGuiTest {
                 .shouldNotBe(disabled)
                 .click();
     }
-
 }
