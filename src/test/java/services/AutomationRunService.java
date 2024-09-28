@@ -8,6 +8,7 @@ import models.Result;
 import org.apache.http.HttpStatus;
 import utils.Endpoints;
 
+import static baseEntities.BaseApiTest.AUTH_TOKEN;
 import static io.restassured.RestAssured.given;
 
 public class AutomationRunService implements IAutomationRunService {
@@ -15,6 +16,7 @@ public class AutomationRunService implements IAutomationRunService {
     @Override
     public Result getAutomationRun(int automationRunId) {
         return given()
+                .header("Authorization", "Bearer " + AUTH_TOKEN)
                 .pathParam("automation_run_id", automationRunId)
                 .log().all()
                 .when()
@@ -29,6 +31,7 @@ public class AutomationRunService implements IAutomationRunService {
     @Override
     public AutomationRun addAutomationRun(int projectId) {
         return given()
+                .header("Authorization", "Bearer " + AUTH_TOKEN)
                 .pathParam("project_id", projectId)
                 .body(AutomationRunService.class.getClassLoader().getResourceAsStream("expectedARTmp.json"))
                 .log().body()
@@ -43,6 +46,7 @@ public class AutomationRunService implements IAutomationRunService {
     @Override
     public Response getAutomationRuns(int projectId) {
         return given()
+                .header("Authorization", "Bearer " + AUTH_TOKEN)
                 .pathParam("project_id", projectId)
                 .when()
                 .get(Endpoints.GET_AUTOMATION_RUNS)
