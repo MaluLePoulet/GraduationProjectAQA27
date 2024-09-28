@@ -4,6 +4,7 @@
     <test name="API Tests" parallel="methods" thread-count="2">
         <classes>
             <class name="tests.api.AutomationRunsApiTest"/>
+            <class name="tests.api.NegativeGetTests"/>
         </classes>
     </test>
     <test name="GUI Tests" parallel="classes" thread-count="3">

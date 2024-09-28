@@ -2,7 +2,6 @@ package tests.api;
 
 import baseEntities.BaseApiTest;
 import io.qameta.allure.Description;
-import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.apache.http.HttpStatus;
 import org.testng.annotations.Test;
