@@ -27,4 +27,3 @@ public void secondLoginTests() {
                 .shouldBe(visible);
     }
 }
-
