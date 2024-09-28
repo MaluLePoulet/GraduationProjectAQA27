@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Main Suite" parallel="tests" thread-count="4">
+    <test name="API Tests" parallel="methods" thread-count="2">
+        <classes>
+            <class name="tests.api.AutomationRunsApiTest"/>
+            <class name="tests.api.NegativeGetTests"/>
+        </classes>
+    </test>
+    <test name="GUI Tests" parallel="classes" thread-count="3">
+        <classes>
+            <class name="tests.gui.LoginFuncTest"/>
+            <class name="tests.gui.DeleteProjectTest"/>
+            <class name="tests.gui.ProjectFuncTest"/>
+        </classes>
+    </test>
+</suite>
