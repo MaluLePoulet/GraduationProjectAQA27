@@ -1,6 +1,6 @@
-package tests;
+package tests.gui;
 
-import baseEntities.BaseTest;
+import baseEntities.BaseGuiTest;
 import io.qameta.allure.Description;
 import org.testng.annotations.Test;
 import utils.ProjectDirector;
@@ -9,7 +9,7 @@ import utils.UserDirector;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Condition.*;
 
-public class DeleteProjectTest extends BaseTest {
+public class DeleteProjectTest extends BaseGuiTest {
 
     @Test(description = "Delete project and check popup")
     @Description("Test to check the display of the dialog box and removal of the project entity")

@@ -19,8 +19,8 @@ public class ReadProperties {
         return properties.getProperty("url");
     }
 
-    public static String browserName() {
-        return properties.getProperty("browser");
+    public static String getUri() {
+        return properties.getProperty("uri");
     }
 
     public static String username() {
@@ -29,10 +29,6 @@ public class ReadProperties {
 
     public static String password() {
         return properties.getProperty("password");
-    }
-
-    public static boolean isHeadless() {
-        return properties.getProperty("headless").equalsIgnoreCase("true");
     }
 
     public static int timeout() {

@@ -1,6 +1,6 @@
-package tests;
+package tests.gui;
 
-import baseEntities.BaseTest;
+import baseEntities.BaseGuiTest;
 import io.qameta.allure.Description;
 import org.testng.annotations.Test;
 import pages.AddProjectPage;
@@ -12,7 +12,7 @@ import java.io.File;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 
-public class ProjectFuncTest extends BaseTest {
+public class ProjectFuncTest extends BaseGuiTest {
     protected AddProjectPage addProjectPage = new AddProjectPage();
 
     @Test(description = "Exceeded values test")
