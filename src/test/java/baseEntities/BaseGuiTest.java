@@ -7,11 +7,13 @@ import com.codeborne.selenide.logevents.SelenideLogger;
 import com.codeborne.selenide.testng.SoftAsserts;
 import configuration.ReadProperties;
 import io.qameta.allure.selenide.AllureSelenide;
+import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
 import steps.LoginStep;
 import steps.ProjectStep;
 
 import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.WebDriverRunner.webdriverContainer;
 
 @Listeners(SoftAsserts.class)
 public class BaseGuiTest {
