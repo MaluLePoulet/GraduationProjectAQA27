@@ -18,7 +18,7 @@ public class NegativeGetTests extends BaseApiTest {
     public void invalidTokenTest() {
         Allure.step("Send GET request with invalid token", () -> {
             Response response = given()
-                    .header("Authorization", "Bearer " + INVALID_AUTH_TOKEN)  // Пробел добавлен между Bearer и токеном
+                    .header("Authorization", "Bearer " + INVALID_AUTH_TOKEN)
                     .get(Endpoints.GET_PROJECT);
 
             Allure.step("Verify response status is 401 Unauthorized", () -> {
