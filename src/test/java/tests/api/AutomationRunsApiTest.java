@@ -1,6 +1,7 @@
 package tests.api;
 
 import baseEntities.BaseApiTest;
+import io.qameta.allure.Allure;
 import io.qameta.allure.Description;
 import io.restassured.response.Response;
 import models.AutomationRun;
@@ -18,13 +19,16 @@ public class AutomationRunsApiTest extends BaseApiTest {
         AutomationRun expectedAutomationRun = automationRunService.addAutomationRun(154);
         actualAutomationRun = automationRunService.getAutomationRun(expectedAutomationRun.getId());
 
-        Assert.assertEquals(actualAutomationRun.getResult().getId(), expectedAutomationRun.getId());
+        Allure.step("Verify that the actual ID matches the expected automation run ID", () ->
+                Assert.assertEquals(actualAutomationRun.getResult().getId(), expectedAutomationRun.getId()));
     }
 
     @Test(description = "Get automation runs")
     @Description("This is to test if API request GET automation runs works correctly")
     public void getAutomationRuns() {
         Response response = automationRunService.getAutomationRuns(154);
-        Assert.assertEquals(response.getStatusCode(), HttpStatus.SC_OK);
+
+        Allure.step("Verify response status code is 200 OK", () ->
+                Assert.assertEquals(response.getStatusCode(), HttpStatus.SC_OK));
     }
 }
