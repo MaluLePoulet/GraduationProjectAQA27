@@ -10,11 +10,9 @@ public class ProjectStep extends BaseStep {
 
     public ProjectInstancePage addProject(Project project) {
         Allure.step("Add project", () -> {
-            setTextFieldsValues(project);
-            Allure.step("Set demo project", () -> {
-                addProjectPage.setDemoProjectTo(project.isDemoProject());
-            });
-            addProjectPage.clickAddProjectButton();
+            setTextFieldsValues(project)
+                    .setDemoProjectTo(project.isDemoProject())
+                    .clickAddProjectButton();
         });
         return new ProjectInstancePage();
     }

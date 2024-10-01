@@ -8,6 +8,4 @@ public class Endpoints {
     public static final String GET_PROJECTS = "projects/view/{project_id}";
     public static final String GET_PROJECT = "projects";
     public static final String GET_ADMIN_RESOURCE = "admin/{resource}";
-
-
 }

@@ -14,7 +14,7 @@ import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 
 public class ProjectFuncTest extends BaseGuiTest {
-    protected AddProjectPage addProjectPage = new AddProjectPage();
+    private AddProjectPage addProjectPage = new AddProjectPage();
 
     @Test(description = "Exceeded values test")
     @Description("This is to test if the field that allows a certain number of symbols works correctly")
@@ -31,7 +31,7 @@ public class ProjectFuncTest extends BaseGuiTest {
                     .shouldHave(value("This text contains way way way way more than eighty symbols. The exact number is"));
         });
 
-        Allure.step("Checking that the character counter displays 80/80", () -> {
+        Allure.step("Verify that the character counter displays 80/80", () -> {
             $(".maxlength-counter__counter")
                     .shouldHave(text("80/80"));
         });
@@ -46,7 +46,7 @@ public class ProjectFuncTest extends BaseGuiTest {
                     .hover();
         });
 
-        Allure.step("Checking that the popup is displayed and contains the correct text", () -> {
+        Allure.step("Verify that the popup is displayed and contains the correct text", () -> {
             $(".popup.popup--visible")
                     .should(exist)
                     .shouldHave(text("You can assign project-specific permissions to users and groups. All users without project-specific permissions automatically use this configured default access (e.g. their global role)."));
@@ -64,7 +64,7 @@ public class ProjectFuncTest extends BaseGuiTest {
                             .getPath());
         });
 
-        Allure.step("Checking that the avatar is uploaded correctly", () -> {
+        Allure.step("Verify that the avatar is uploaded correctly", () -> {
             $(".avatar.avatar--64 img")
                     .shouldHave(attributeMatching("src", ".*aqa27.testmo.net/attachments/view/.*"))
                     .shouldBe(visible);
@@ -76,7 +76,7 @@ public class ProjectFuncTest extends BaseGuiTest {
     public void createProjectTest() {
         projectStep.addProject(ProjectDirector.getProject());
 
-        Allure.step("Checking if project 'Our project' is created correctly", () -> {
+        Allure.step("Verify that project 'Our project' is created correctly", () -> {
             $(".page-header__title")
                     .shouldHave(text("Our project"))
                     .shouldBe(visible);
